@@ -1,0 +1,73 @@
+{
+    "name": "worksome/laravel-direct-vue-routing",
+    "description": "Add support for mapping Laravel routes directly to Vue components.",
+    "keywords": [
+        "worksome",
+        "laravel",
+        "direct-vue-routing"
+    ],
+    "homepage": "https://github.com/worksome/laravel-direct-vue-routing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Owen Voke",
+            "email": "owen.voke@worksome.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.14.1",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^6.4",
+        "nunomaduro/larastan": "^2.5.1",
+        "orchestra/testbench": "^8.0.8",
+        "pestphp/pest": "^1.22.5",
+        "pestphp/pest-plugin-laravel": "^1.4",
+        "pestphp/pest-plugin-parallel": "^1.2",
+        "worksome/coding-style": "^2.5",
+        "worksome/pest-plugin-silence": "^0.1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Worksome\\DirectVueRouting\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Worksome\\DirectVueRouting\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "lint": "vendor/bin/ecs --fix",
+        "test:unit": "vendor/bin/pest -p",
+        "test:coverage": "vendor/bin/pest -p --coverage",
+        "test:types": "vendor/bin/phpstan analyse",
+        "test:style": "vendor/bin/ecs",
+        "test": [
+            "@test:style",
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "worksome/coding-style": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Worksome\\DirectVueRouting\\DirectVueRoutingServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
