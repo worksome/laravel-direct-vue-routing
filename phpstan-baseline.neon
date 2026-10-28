@@ -1,2 +1,7 @@
 parameters:
-	ignoreErrors: []
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$view of method Illuminate\\View\\Factory\:\:make\(\) expects view\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DirectVueRoutingServiceProvider.php
